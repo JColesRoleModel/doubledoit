@@ -1,61 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
-  <title>DASHBOARD // TODO TABLETS</title>
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#08102a" />
-  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script>try{var d=localStorage.getItem("dd_bg_dim");if(d!==null)document.documentElement.style.setProperty("--bg-dim",d/100)}catch(e){}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Moved to Tree of Life</title>
+  <meta http-equiv="refresh" content="0; url=https://jcolesrolemodel.github.io/3d-anatomy/dashboard/">
+  <link rel="canonical" href="https://jcolesrolemodel.github.io/3d-anatomy/dashboard/">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0a1f; color: #f4efe3;
+      font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align: center; padding: 16px; }
+    a { color: #e6bd6a; }
+  </style>
+  <script>
+    // DoubleDoIt moved into the Tree of Life site. Retire this site's offline cache so it stops serving old pages.
+    try { navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); }); } catch (e) {}
+    try { caches && caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); }); } catch (e) {}
+    location.replace("https://jcolesrolemodel.github.io/3d-anatomy/dashboard/");
+  </script>
 </head>
-<body class="dash-body">
-  <div class="fx" aria-hidden="true"><div class="tint"></div>
-    <div class="dither"></div>
-    <div class="scanlines"></div>
-    <div class="vignette"></div>
-  </div>
-
-  <div class="dash">
-    <header class="dash-top">
-      <div>
-        <div class="dash-clock" id="clock">--:--</div>
-        <div class="dash-date" id="date"></div>
-      </div>
-      <div class="dash-stats" id="stats"></div>
-      <div class="dash-ctrls">
-        <a class="pill" href="./">APP</a>
-        <button class="pill" id="btn-fs" type="button">FULLSCREEN</button>
-      </div>
-    </header>
-
-    <div class="gate-card dash-gate hidden" id="gate">
-      <div class="gate-title">DASHBOARD</div>
-      <p class="gate-text" id="gate-text">SUMMONING…</p>
-      <button class="btn btn-gold hidden" id="btn-signin" type="button">SIGN IN WITH GOOGLE</button>
-      <div class="hint" id="gate-hint"></div>
-    </div>
-
-    <main class="dash-grid hidden" id="grid">
-      <section class="dash-col dash-due">
-        <div class="dash-col-head"><span class="sigil sigil-gold"></span>DUE</div>
-        <div class="dash-list" id="dash-due"></div>
-      </section>
-      <section class="dash-col dash-gen">
-        <div class="dash-col-head"><span class="sigil sigil-cyan"></span>GENERAL <span class="dash-sub" id="gen-count"></span></div>
-        <div class="dash-list" id="dash-gen"></div>
-      </section>
-    </main>
-  </div>
-
-  <script type="module" src="js/dashboard.js"></script>
+<body>
+  <p>Todo Tablets moved into Tree of Life.<br><a href="https://jcolesrolemodel.github.io/3d-anatomy/dashboard/">Open the Dashboard</a></p>
 </body>
 </html>

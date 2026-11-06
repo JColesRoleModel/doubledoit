@@ -1,5 +1,7 @@
 # DoubleDoIt — Todo Tablets
 
+> **Moved.** As of November 2026 this to-do list lives inside the Tree of Life site, sharing one account with everything else: https://jcolesrolemodel.github.io/3d-anatomy/tasks/ (code in JColesRoleModel/3d-anatomy, `tasks/`). doubledoit.web.app now forwards there, and its old offline cache retires itself. The app code below is kept in git history.
+
 A two-column to-do list that syncs across devices.
 
 - **DUE**: tasks with a date, grouped into Overdue / Today / Tomorrow / This Week / Later
