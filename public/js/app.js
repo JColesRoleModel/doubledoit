@@ -399,6 +399,21 @@ function bind(){
   $("#btn-clear-done").onclick = () => { menu.classList.add("hidden"); clearCompleted(); };
   $("#btn-signout").onclick = () => { menu.classList.add("hidden"); if(confirm("SIGN OUT ON THIS DEVICE?")) logOut(); };
 
+  // Background dim (per device; read early by an inline script in each page's <head>)
+  const dim = $("#bg-dim");
+  let saved = null;
+  try{ saved = localStorage.getItem("dd_bg_dim"); }catch{}
+  dim.value = saved ?? "55";
+  const applyDim = () => {
+    document.documentElement.style.setProperty("--bg-dim", dim.value / 100);
+    $("#bg-dim-val").textContent = dim.value + "%";
+  };
+  applyDim();
+  dim.oninput = () => {
+    applyDim();
+    try{ localStorage.setItem("dd_bg_dim", dim.value); }catch{}
+  };
+
   // Quick add
   $("#quick").addEventListener("submit", quickAdd);
   $$(".chip-btn").forEach(b => {

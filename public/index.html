@@ -18,10 +18,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>try{var d=localStorage.getItem("dd_bg_dim");if(d!==null)document.documentElement.style.setProperty("--bg-dim",d/100)}catch(e){}</script>
 </head>
 
 <body>
-  <div class="fx" aria-hidden="true">
+  <div class="fx" aria-hidden="true"><div class="tint"></div>
     <div class="dither"></div>
     <div class="scanlines"></div>
     <div class="vignette"></div>
@@ -55,6 +56,13 @@
             <button class="menu-item" id="btn-import" type="button" role="menuitem">⇧ IMPORT JSON</button>
             <button class="menu-item" id="btn-clear-done" type="button" role="menuitem">✓ CLEAR COMPLETED</button>
             <button class="menu-item red" id="btn-signout" type="button" role="menuitem">⏻ SIGN OUT</button>
+            <label class="menu-slider">
+              <span>◐ BACKGROUND DIM</span>
+              <span class="menu-slider-row">
+                <input type="range" id="bg-dim" min="0" max="90" step="5" />
+                <output id="bg-dim-val"></output>
+              </span>
+            </label>
           </div>
         </div>
         <input id="import-file" type="file" accept="application/json,.json" hidden />

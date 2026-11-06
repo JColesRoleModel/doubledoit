@@ -5,7 +5,8 @@
   --text:#f7e7a7;
   --muted:#cbbd86;
 
-  --panel: rgba(5, 6, 14, 0.78);
+  --panel: rgba(5, 8, 22, 0.55);
+  --bg-dim: 0.55;
   --stroke: rgba(0,255,255,0.22);
   --stroke2: rgba(255,215,0,0.28);
 
@@ -672,3 +673,23 @@ input[type="date"].input, input[type="time"].input{ min-height: 48px; }
   .card-top{ padding:10px; }
   .card-meta{ font-size:16px; gap:6px; }
 }
+
+/* Background tint: a themed wash over the photo so text stays readable.
+   Strength is --bg-dim (0–0.9), adjustable from MENU → BACKGROUND DIM. */
+.tint{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(8,16,42,0.25), rgba(4,6,18,0.35)),
+    rgba(8,16,42,var(--bg-dim));
+}
+.topbar{ background: rgba(4,8,22,0.55); }
+.dash-top{ background: rgba(4,8,22,0.55); }
+
+.menu-slider{
+  display:flex; flex-direction:column; gap:6px;
+  padding:10px; font-size:20px; letter-spacing:0.1em; color: var(--text);
+  border-top: 1px solid rgba(255,255,255,0.08); margin-top:4px;
+}
+.menu-slider-row{ display:flex; align-items:center; gap:10px; }
+.menu-slider input[type="range"]{ flex:1; accent-color: var(--gold); }
+.menu-slider output{ min-width: 3ch; text-align:right; color: var(--gold); }
