@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+  <title>DASHBOARD // TODO TABLETS</title>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#08102a" />
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dash-body">
+  <div class="fx" aria-hidden="true">
+    <div class="dither"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="dash">
+    <header class="dash-top">
+      <div>
+        <div class="dash-clock" id="clock">--:--</div>
+        <div class="dash-date" id="date"></div>
+      </div>
+      <div class="dash-stats" id="stats"></div>
+      <div class="dash-ctrls">
+        <a class="pill" href="./">APP</a>
+        <button class="pill" id="btn-fs" type="button">FULLSCREEN</button>
+      </div>
+    </header>
+
+    <div class="gate-card dash-gate hidden" id="gate">
+      <div class="gate-title">DASHBOARD</div>
+      <p class="gate-text" id="gate-text">SUMMONING…</p>
+      <button class="btn btn-gold hidden" id="btn-signin" type="button">SIGN IN WITH GOOGLE</button>
+      <div class="hint" id="gate-hint"></div>
+    </div>
+
+    <main class="dash-grid hidden" id="grid">
+      <section class="dash-col dash-due">
+        <div class="dash-col-head"><span class="sigil sigil-gold"></span>DUE</div>
+        <div class="dash-list" id="dash-due"></div>
+      </section>
+      <section class="dash-col dash-gen">
+        <div class="dash-col-head"><span class="sigil sigil-cyan"></span>GENERAL <span class="dash-sub" id="gen-count"></span></div>
+        <div class="dash-list" id="dash-gen"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

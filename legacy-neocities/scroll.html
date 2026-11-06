@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+  <title>THE SCROLL // TODO TABLETS</title>
+
+  <link rel="apple-touch-icon" href="assets/icons/solarsword.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="The Scroll" />
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#08102a" />
+  <link rel="icon" href="assets/icons/solarsword.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="fx" aria-hidden="true">
+    <div class="dither"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="title-row">
+            <h1 class="title">THE SCROLL</h1>
+            <a class="scroll-link" href="index.html">BACK TO TABLETS</a>
+          </div>
+          <div class="subtitle">RULES // RITUAL // EXECUTION</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="col" style="max-width:900px;margin:0 auto;">
+        <div class="col-head">
+          <div class="col-title">
+            <span class="sigil sigil-gold" aria-hidden="true"></span>
+            <span>HOW IT SAVES</span>
+          </div>
+        </div>
+
+        <div class="list">
+          <div class="card">
+            <div class="card-top">
+              <div style="flex:1">
+                <div class="card-title">DEVICE-SAVED</div>
+                <div class="card-meta">
+                  <div class="tag gold">LOCALSTORAGE</div>
+                  <div class="tag">OFFLINE CACHE</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-notes">
+Your tasks are stored on the device automatically.
+If you add this to Home Screen, it runs like an app.
+First visit requires internet; after that it runs offline.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js", { scope: "./" }).catch(()=>{});
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+  <title>THE SCROLL // TODO TABLETS</title>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#08102a" />
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="fx" aria-hidden="true"><div class="dither"></div><div class="scanlines"></div><div class="vignette"></div></div>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="title-row">
+            <h1 class="title">THE SCROLL</h1>
+            <a class="scroll-link" href="./">BACK TO TABLETS</a>
+          </div>
+          <div class="subtitle">RULES // RITUAL // EXECUTION</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="col" style="max-width:900px;width:100%;margin:0 auto;min-height:0;">
+        <div class="list">
+          <div class="card"><div class="card-top"><div class="card-main">
+            <div class="card-title">TWO TABLETS</div>
+            <div class="card-meta"><div class="tag gold">DUE</div><div class="tag">GENERAL</div></div>
+          </div></div>
+          <div class="card-notes">DUE holds anything with a date, grouped into Overdue, Today, Tomorrow, This Week and Later.
+GENERAL holds everything else. Sort or shuffle it however you like.
+Give a task a date (TODAY, TMRW or 📅) when you add it and it goes to DUE. Otherwise it goes to GENERAL.</div></div>
+
+          <div class="card"><div class="card-top"><div class="card-main">
+            <div class="card-title">HOW IT SAVES</div>
+            <div class="card-meta"><div class="tag gold">GOOGLE SIGN-IN</div><div class="tag">CLOUD SYNC</div><div class="tag">WORKS OFFLINE</div></div>
+          </div></div>
+          <div class="card-notes">Tasks are saved to your Google account and sync to every device you sign in on.
+Offline? Keep adding. Changes sync when you reconnect.</div></div>
+
+          <div class="card"><div class="card-top"><div class="card-main">
+            <div class="card-title">PUT IT ON YOUR PHONE</div>
+          </div></div>
+          <div class="card-notes">iPhone: open the site in Safari → Share → Add to Home Screen.
+Android: open the site in Chrome → ⋮ menu → Add to Home screen / Install app.</div></div>
+
+          <div class="card"><div class="card-top"><div class="card-main">
+            <div class="card-title">DASHBOARD MODE</div>
+          </div></div>
+          <div class="card-notes">Open MENU → DASHBOARD on a spare screen. It shows big, live-updating lists, a clock, and keeps the screen awake.
+Tap FULLSCREEN for a clean display.</div></div>
+
+          <div class="card"><div class="card-top"><div class="card-main">
+            <div class="card-title">BRINGING OLD TASKS OVER</div>
+          </div></div>
+          <div class="card-notes">On the old Neocities site, press EXPORT on each device to download a .json file.
+Here, open MENU → IMPORT JSON and choose that file. Old time-sensitive tasks land in DUE under "Needs a date."
+Duplicates are skipped, so importing twice is safe.</div></div>
+
+          <div class="card"><div class="card-top"><div class="card-main">
+            <div class="card-title">SHORTCUTS</div>
+          </div></div>
+          <div class="card-notes">N: jump to quick add
+Ctrl/⌘ + Enter: save the task you're editing
+Esc: close</div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});</script>
+</body>
+</html>

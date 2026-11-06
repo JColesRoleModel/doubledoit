@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+  <title>TODO TABLETS // EXECUTION OS</title>
+
+  <!-- iOS Home Screen (Web Clip) Icon + App Mode -->
+  <link rel="apple-touch-icon" href="assets/icons/solarsword.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Todo OS" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#08102a" />
+
+  <!-- Optional favicon -->
+  <link rel="icon" href="assets/icons/solarsword.png" type="image/png">
+
+  <!-- Pixel font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Background FX layers -->
+  <div class="fx" aria-hidden="true">
+    <div class="dither"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-text">
+          <div class="title-row">
+            <h1 class="title">TODO TABLETS</h1>
+            <a class="scroll-link" href="scroll.html">VIEW THE SCROLL</a>
+          </div>
+          <div class="subtitle">SOLAR SWORD // JESUS LANDSCAPE // DEVICE-SAVED</div>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button class="btn btn-gold" id="btn-add" type="button">
+          <span class="btn-ico">＋</span><span class="btn-text">ADD</span>
+        </button>
+
+        <button class="btn btn-cyan" id="btn-export" type="button" title="Export JSON">
+          <span class="btn-ico">⇩</span><span class="btn-text">EXPORT</span>
+        </button>
+
+        <button class="btn btn-void" id="btn-import" type="button" title="Import JSON">
+          <span class="btn-ico">⇧</span><span class="btn-text">IMPORT</span>
+        </button>
+
+        <button class="btn btn-red" id="btn-reset" type="button" title="Reset Everything">
+          <span class="btn-ico">⟲</span><span class="btn-text">RESET</span>
+        </button>
+
+        <input id="import-file" type="file" accept="application/json" hidden />
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <span class="chip">SEARCH</span>
+          <input id="search" class="input" placeholder="Search tasks..." autocomplete="off" />
+        </div>
+
+        <label class="check">
+          <input id="toggle-completed" type="checkbox" />
+          <span>SHOW COMPLETED</span>
+        </label>
+      </div>
+
+      <section class="columns">
+        <!-- TIME-SENSITIVE -->
+        <div class="col">
+          <div class="col-head">
+            <div class="col-title">
+              <span class="sigil sigil-gold" aria-hidden="true"></span>
+              <span>TIME-SENSITIVE</span>
+              <span class="count" id="count-sens">0</span>
+            </div>
+
+            <div class="col-controls">
+              <select class="select" id="sort-sens" title="Sort Time-Sensitive">
+                <option value="old">CREATED: OLDEST → NEWEST</option>
+                <option value="new">CREATED: NEWEST → OLDEST</option>
+                <option value="az">A → Z</option>
+                <option value="za">Z → A</option>
+                <option value="timeLow">TIME: LOW → HIGH</option>
+                <option value="timeHigh">TIME: HIGH → LOW</option>
+                <option value="random">RANDOM</option>
+              </select>
+              <button class="btn btn-void btn-sm" id="shuffle-sens" title="Reshuffle Random">🎲</button>
+            </div>
+          </div>
+
+          <div class="list" id="list-sens"></div>
+        </div>
+
+        <!-- NOT TIME-SENSITIVE -->
+        <div class="col">
+          <div class="col-head">
+            <div class="col-title">
+              <span class="sigil sigil-cyan" aria-hidden="true"></span>
+              <span>NOT-TIME-SENSITIVE</span>
+              <span class="count" id="count-nons">0</span>
+            </div>
+
+            <div class="col-controls">
+              <select class="select" id="sort-nons" title="Sort Not-Time-Sensitive">
+                <option value="old">CREATED: OLDEST → NEWEST</option>
+                <option value="new">CREATED: NEWEST → OLDEST</option>
+                <option value="az">A → Z</option>
+                <option value="za">Z → A</option>
+                <option value="timeLow">TIME: LOW → HIGH</option>
+                <option value="timeHigh">TIME: HIGH → LOW</option>
+                <option value="random">RANDOM</option>
+              </select>
+              <button class="btn btn-void btn-sm" id="shuffle-nons" title="Reshuffle Random">🎲</button>
+            </div>
+          </div>
+
+          <div class="list" id="list-nons"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal hidden" id="modal">
+    <div class="modal-backdrop" id="modal-close"></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <div class="modal-title" id="modal-title">INSCRIBE A TASK</div>
+        <button class="btn btn-red btn-sm" id="modal-x" type="button">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <label class="field">
+          <span class="label">TASK NAME</span>
+          <input class="input" id="task-title" placeholder="e.g., Call supplier, Build landing page..." />
+        </label>
+
+        <div class="grid2">
+          <label class="check">
+            <input id="is-sensitive" type="checkbox" />
+            <span>TIME-SENSITIVE?</span>
+          </label>
+
+          <label class="check">
+            <input id="has-est" type="checkbox" />
+            <span>ESTIMATED TIME?</span>
+          </label>
+        </div>
+
+        <label class="field" id="est-wrap" style="display:none;">
+          <span class="label">MINUTES</span>
+          <input class="input" id="task-est" inputmode="numeric" placeholder="e.g., 25" />
+        </label>
+
+        <label class="field">
+          <span class="label">NOTES (OPTIONAL)</span>
+          <textarea class="input textarea" id="task-notes" placeholder="Quick notes..."></textarea>
+        </label>
+
+        <div class="modal-foot">
+          <button class="btn btn-void" id="btn-cancel" type="button">CANCEL</button>
+          <button class="btn btn-gold" id="btn-save" type="button">SAVE</button>
+        </div>
+
+        <div class="hint" id="modal-hint"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+rules_version = '2';
+
+// Each signed-in Google account can only see and change its own tasks.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid}/tasks/{taskId} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == uid;
+      }
+      function validTask() {
+        let d = request.resource.data;
+        return d.title is string
+          && d.title.size() > 0 && d.title.size() <= 300
+          && (!('notes' in d) || (d.notes is string && d.notes.size() <= 5000))
+          && (!('section' in d) || d.section in ['due', 'general']);
+      }
+
+      allow read, delete: if isOwner();
+      allow create, update: if isOwner() && validTask();
+    }
+  }
+}
